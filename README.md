@@ -58,14 +58,24 @@ developed by:Gokulan S
 regno: 21225230078
 ```
 ```
-module Exp4(A,B,C,S1,C1,D1,B1);
-input A,B,C;
-output S1,C1,D1,B1;
-assign S1=A^B^C;
-assign C1=A&B|A&C|B&C;
-assign D1=A^B^C;
-assign B1=~A&(C|B)|B&C;
+i)FULL ADDER
+
+module fa(a,b,cin,sum,carry);
+input a,b,cin;
+output sum,carry;
+assign sum=( (a ^ b)^cin);
+assign carry= ( (a & b)| ( cin &(a ^ b )));
 endmodule
+
+ii)FULL SUBTRACTOR
+
+module fs(a,b,bin,difference,borrow);
+input a,b,bin;
+output difference,borrow;
+assign difference= ( (a ^ b)^bin);
+assign borrow= ( ( ~a & b)| ( bin & (~(a ^ b ))));
+endmodule
+
 ```
 
 
